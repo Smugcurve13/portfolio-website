@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,24 +24,20 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Initialize EmailJS with your public key
-      emailjs.init('YOUR_EMAILJS_PUBLIC_KEY'); // You'll need to replace this
-      
-      // Send email using EmailJS
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // You'll need to replace this
-        'YOUR_TEMPLATE_ID', // You'll need to replace this
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'sambhavsoni14@gmail.com'
-        }
-      );
+      const response = await fetch('http://localhost:3001/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
 
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
       console.error('Error sending email:', error);
       setSubmitStatus('error');
