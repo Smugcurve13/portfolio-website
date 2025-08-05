@@ -24,22 +24,32 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('http://localhost:3001/send-email', {
+      // Replace this URL with your Google Form URL after creating the form
+      const GOOGLE_FORM_URL = 'YOUR_GOOGLE_FORM_URL';
+      
+      // Create FormData for Google Forms submission
+      const formDataToSubmit = new FormData();
+      
+      // You'll need to replace these entry IDs with your actual Google Form field IDs
+      // Instructions: Right-click on each form field in Google Forms → "Inspect" → find "entry.XXXXXXXX"
+      formDataToSubmit.append('entry.NAME_FIELD_ID', formData.name);
+      formDataToSubmit.append('entry.EMAIL_FIELD_ID', formData.email);
+      formDataToSubmit.append('entry.SUBJECT_FIELD_ID', formData.subject);
+      formDataToSubmit.append('entry.MESSAGE_FIELD_ID', formData.message);
+
+      // Submit to Google Forms
+      await fetch(GOOGLE_FORM_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+        mode: 'no-cors', // Required for Google Forms
+        body: formDataToSubmit
       });
 
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error('Failed to send email');
-      }
+      // Since we use no-cors, we can't check the response, so we assume success
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
