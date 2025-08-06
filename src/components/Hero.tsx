@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const titles = [
+    "Software Engineer",
+    "Indie Developer",
+    "AI Systems Builder",
+    "Backend Specialist",
+    "Automation Enthusiast",
+    "Product-Focused Engineer",
+  ];
+
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = currentTitleIndex % titles.length;
+      const fullText = titles[i];
+
+      setTypingSpeed(isDeleting ? 75 : 150);
+
+      if (isDeleting) {
+        setDisplayedText(fullText.substring(0, displayedText.length - 1));
+      } else {
+        setDisplayedText(fullText.substring(0, displayedText.length + 1));
+      }
+
+      if (!isDeleting && displayedText === fullText) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayedText === "") {
+        setIsDeleting(false);
+        setCurrentTitleIndex((prev) => prev + 1);
+      }
+    };
+
+    const timeout = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentTitleIndex, typingSpeed, titles]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -16,9 +55,11 @@ const Hero: React.FC = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Hi, I'm <span className="text-blue-400">Sambhav Soni</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-            Python Developer & Tech Enthusiast
-          </p>
+          <div className="min-h-[2.5rem] flex items-center justify-center mb-8">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed text-center">
+              <span className="text-blue-400" id="typewriter-text">{displayedText || '\u00A0'}</span>
+            </p>
+          </div>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
             I create innovative solutions through code, from AI-powered applications to automation tools. 
             Passionate about turning complex problems into elegant solutions.
