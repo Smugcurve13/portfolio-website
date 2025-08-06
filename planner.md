@@ -24,7 +24,7 @@ A professional portfolio site to showcase projects and skills to future hiring c
     - Tools & Technologies
   - Use placeholder data — e.g., Python, Flask, PostgreSQL, Git, Redis, Docker, Mailchimp API, AI agents, etc.
 - **Projects Page**
-  - Integrate GitHub API to fetch all repositories from a user (placeholder username for now)
+  - Integrate GitHub API to fetch all repositories from Smugcurve13 (username)
   - Display project cards with:
     - Project name
     - Description
@@ -40,9 +40,9 @@ A professional portfolio site to showcase projects and skills to future hiring c
   - Text link to open it in new tab (placeholder link)
 - **Contact Page**
   - Display:
-    - Email (placeholder)
-    - LinkedIn (placeholder)
-    - Simple contact form (non-functional for now)
+    - Email 
+    - LinkedIn 
+    - Simple contact form (working on it)
 
 🎨 **Design Requirements**:
 - Slightly creative look
@@ -53,5 +53,5 @@ A professional portfolio site to showcase projects and skills to future hiring c
 
 🛠 **Dev Notes**:
 - Structure everything modularly using React + TypeScript components
-- Keep all external integrations (GitHub, resume link, contact form) non-functional for now using placeholders
+- Keep all external integrations (GitHub, resume link, contact form) non-functional for now (now working)
 - Easy to later plug in real data (via .env, CMS, or manual content updates)

@@ -37,14 +37,14 @@ After creating your Google Form, you need to find the field IDs to integrate wit
 Once you have the field IDs, update these lines in `src/components/Contact.tsx`:
 
 ```javascript
-// Replace YOUR_GOOGLE_FORM_URL with your form's submit URL
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSe.../formResponse';
+// Use your Google Form's submit URL
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeg_C9BqiLLJKkaRNTbdmY8xYB7LgJxwbEHpb6dejMYSlKXWA/formResponse';
 
-// Replace these with your actual entry IDs:
-formDataToSubmit.append('entry.123456789', formData.name);     // Name field
-formDataToSubmit.append('entry.987654321', formData.email);    // Email field  
-formDataToSubmit.append('entry.555666777', formData.subject);  // Subject field
-formDataToSubmit.append('entry.444333222', formData.message);  // Message field
+// Use these entry IDs for your fields:
+formDataToSubmit.append('entry.26508840', formData.name);      // Name field
+formDataToSubmit.append('entry.2042462182', formData.email);   // Email field  
+formDataToSubmit.append('entry.1820202441', formData.subject); // Subject field
+formDataToSubmit.append('entry.293136452', formData.message);  // Message field
 ```
 
 ## Important Notes:
@@ -56,7 +56,7 @@ formDataToSubmit.append('entry.444333222', formData.message);  // Message field
 
 ## Quick Setup Checklist:
 
-- [ ] Create Google Form with 4 fields (Name, Email, Subject, Message)
+- [x] Create Google Form with 4 fields (Name, Email, Subject, Message)
 - [ ] Enable email notifications in Responses tab
 - [ ] Get form URL and change `viewform` to `formResponse`
 - [ ] Extract field IDs using one of the methods above
