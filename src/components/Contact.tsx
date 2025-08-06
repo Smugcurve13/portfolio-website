@@ -24,18 +24,17 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Replace this URL with your Google Form URL after creating the form
-      const GOOGLE_FORM_URL = 'YOUR_GOOGLE_FORM_URL';
-      
+      // Use your Google Form's submit URL
+      const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeg_C9BqiLLJKkaRNTbdmY8xYB7LgJxwbEHpb6dejMYSlKXWA/formResponse';
+
       // Create FormData for Google Forms submission
       const formDataToSubmit = new FormData();
-      
-      // You'll need to replace these entry IDs with your actual Google Form field IDs
-      // Instructions: Right-click on each form field in Google Forms → "Inspect" → find "entry.XXXXXXXX"
-      formDataToSubmit.append('entry.NAME_FIELD_ID', formData.name);
-      formDataToSubmit.append('entry.EMAIL_FIELD_ID', formData.email);
-      formDataToSubmit.append('entry.SUBJECT_FIELD_ID', formData.subject);
-      formDataToSubmit.append('entry.MESSAGE_FIELD_ID', formData.message);
+
+      // Use these entry IDs for your fields:
+      formDataToSubmit.append('entry.26508840', formData.name);      // Name field
+      formDataToSubmit.append('entry.2042462182', formData.email);   // Email field  
+      formDataToSubmit.append('entry.1820202441', formData.subject); // Subject field
+      formDataToSubmit.append('entry.293136452', formData.message);  // Message field
 
       // Submit to Google Forms
       await fetch(GOOGLE_FORM_URL, {
@@ -47,7 +46,7 @@ const Contact: React.FC = () => {
       // Since we use no-cors, we can't check the response, so we assume success
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
+
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
