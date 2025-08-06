@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const titles = [
+  const rawTitles = [
     "Software Engineer",
     "Indie Developer",
     "AI Systems Builder",
@@ -10,6 +10,14 @@ const Hero: React.FC = () => {
     "Automation Enthusiast",
     "Product-Focused Engineer",
   ];
+
+  const titles = rawTitles.map(title => {
+    const firstLetter = title.charAt(0).toLowerCase();
+    if (['a', 'e', 'i', 'o', 'u'].includes(firstLetter)) {
+      return `An ${title}`;
+    }
+    return `A ${title}`;
+  });
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -20,17 +28,27 @@ const Hero: React.FC = () => {
     const handleTyping = () => {
       const i = currentTitleIndex % titles.length;
       const fullText = titles[i];
+      const prefix = fullText.startsWith("A ") ? "A " : (fullText.startsWith("An ") ? "An " : "");
 
       setTypingSpeed(isDeleting ? 75 : 150);
 
       if (isDeleting) {
         setDisplayedText(fullText.substring(0, displayedText.length - 1));
       } else {
-        setDisplayedText(fullText.substring(0, displayedText.length + 1));
+        if (displayedText.length < prefix.length) {
+          setDisplayedText(prefix.substring(0, displayedText.length + 1));
+        } else {
+          setDisplayedText(fullText.substring(0, displayedText.length + 1));
+        }
       }
 
       if (!isDeleting && displayedText === fullText) {
         setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && displayedText === prefix) {
+        setTimeout(() => {
+          setIsDeleting(false);
+          setCurrentTitleIndex((prev) => prev + 1);
+        }, 500);
       } else if (isDeleting && displayedText === "") {
         setIsDeleting(false);
         setCurrentTitleIndex((prev) => prev + 1);
@@ -57,7 +75,7 @@ const Hero: React.FC = () => {
           </h1>
           <div className="min-h-[2.5rem] flex items-center justify-center mb-8">
             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed text-center">
-              <span className="text-blue-400" id="typewriter-text">{displayedText || '\u00A0'}</span>
+              <span className="text-blue-400 typewriter-cursor" id="typewriter-text">{displayedText || '\u00A0'}</span>
             </p>
           </div>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-12">
