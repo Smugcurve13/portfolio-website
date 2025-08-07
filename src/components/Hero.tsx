@@ -26,32 +26,26 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const handleTyping = () => {
-      const i = currentTitleIndex % titles.length;
-      const fullText = titles[i];
-      const prefix = fullText.startsWith("A ") ? "A " : (fullText.startsWith("An ") ? "An " : "");
-
+      const currentTitle = titles[currentTitleIndex % titles.length];
+      
       setTypingSpeed(isDeleting ? 25 : 50);
 
       if (isDeleting) {
-        setDisplayedText(fullText.substring(0, displayedText.length - 1));
+        // Delete one character
+        setDisplayedText(prev => prev.slice(0, -1));
       } else {
-        if (displayedText.length < prefix.length) {
-          setDisplayedText(prefix.substring(0, displayedText.length + 1));
-        } else {
-          setDisplayedText(fullText.substring(0, displayedText.length + 1));
-        }
+        // Type one character
+        setDisplayedText(currentTitle.substring(0, displayedText.length + 1));
       }
 
-      if (!isDeleting && displayedText === fullText) {
+      // Check if we've finished typing the full title
+      if (!isDeleting && displayedText === currentTitle) {
         setTimeout(() => setIsDeleting(true), 1500);
-      } else if (isDeleting && displayedText === prefix) {
-        setTimeout(() => {
-          setIsDeleting(false);
-          setCurrentTitleIndex((prev) => prev + 1);
-        }, 500);
-      } else if (isDeleting && displayedText === "") {
+      }
+      // Check if we've finished deleting everything
+      else if (isDeleting && displayedText === "") {
         setIsDeleting(false);
-        setCurrentTitleIndex((prev) => prev + 1);
+        setCurrentTitleIndex(prev => (prev + 1) % titles.length);
       }
     };
 
