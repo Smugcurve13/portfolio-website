@@ -2,6 +2,8 @@ import React from 'react';
 import { ExternalLink, Github, Code, Bot, Gamepad, BarChart3 } from 'lucide-react';
 
 const Projects: React.FC = () => {
+  const [activeCategory, setActiveCategory] = React.useState<string>('All');
+
   const projects = [
     {
       title: "SAMGPT",
@@ -9,7 +11,8 @@ const Projects: React.FC = () => {
       tech: ["Python", "HTML", "AI/ML"],
       github: "https://github.com/Smugcurve13/SAMGPT-updated",
       demo: null,
-      icon: <Bot className="w-6 h-6" />
+      icon: <Bot className="w-6 h-6" />,
+      category: "AI/ML"
     },
     {
       title: "Weather Forecast Data App",
@@ -17,7 +20,8 @@ const Projects: React.FC = () => {
       tech: ["Python", "API Integration", "Data Analysis"],
       github: "https://github.com/Smugcurve13/Weather-forecast-data-app",
       demo: null,
-      icon: <BarChart3 className="w-6 h-6" />
+      icon: <BarChart3 className="w-6 h-6" />,
+      category: "Data Analysis"
     },
     {
       title: "Steam Big Picture Controller",
@@ -25,7 +29,8 @@ const Projects: React.FC = () => {
       tech: ["Python", "Automation", "Windows"],
       github: "https://github.com/Smugcurve13/bluetooth-controller-turn-on-steam-bigpicture",
       demo: null,
-      icon: <Gamepad className="w-6 h-6" />
+      icon: <Gamepad className="w-6 h-6" />,
+      category: "Automation"
     },
     {
       title: "Price-to-Performance Calculator",
@@ -33,7 +38,8 @@ const Projects: React.FC = () => {
       tech: ["Python", "Data Analysis", "Performance Metrics"],
       github: "https://github.com/Smugcurve13/price-to-performance-to-percentage",
       demo: null,
-      icon: <BarChart3 className="w-6 h-6" />
+      icon: <BarChart3 className="w-6 h-6" />,
+      category: "Data Analysis"
     },
     {
       title: "Wiz Control System",
@@ -41,7 +47,8 @@ const Projects: React.FC = () => {
       tech: ["Python", "IoT", "Smart Home"],
       github: "https://github.com/Smugcurve13/wiz-control-by-SC13",
       demo: null,
-      icon: <Code className="w-6 h-6" />
+      icon: <Code className="w-6 h-6" />,
+      category: "IoT"
     },
     {
       title: "Portfolio Website",
@@ -49,7 +56,8 @@ const Projects: React.FC = () => {
       tech: ["React", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/Smugcurve13/portfolio-website",
       demo: "https://sambhavsoni.dev",
-      icon: <Code className="w-6 h-6" />
+      icon: <Code className="w-6 h-6" />,
+      category: "Web Development"
     }
   ];
 
@@ -57,15 +65,27 @@ const Projects: React.FC = () => {
     <section id="projects" className="py-20 bg-gray-900">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">My Projects</h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">My Projects</h2>
+          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Here are some of my recent projects that showcase my skills in Python development, 
             automation, web development, and creative problem-solving.
           </p>
         </div>
 
+        <div className="flex justify-center space-x-4 mb-8">
+          {['All', ...Array.from(new Set(projects.map(p => p.category)))].map(category => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium ${activeCategory === category ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.filter(project => activeCategory === 'All' ? true : project.category === activeCategory).map((project, index) => (
             <div key={index} className="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
