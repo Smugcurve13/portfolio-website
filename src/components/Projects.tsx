@@ -72,7 +72,7 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex justify-center space-x-4 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 px-4">
           {['All', ...Array.from(new Set(projects.map(p => p.category)))].map(category => (
             <button
               key={category}
