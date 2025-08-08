@@ -6,26 +6,17 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      title: "SAMGPT",
-      description: "A powerful LLM Chat Software designed to facilitate seamless conversations using Large Language Models. Features an intuitive interface for AI-powered conversations.",
-      tech: ["Python", "HTML", "AI/ML"],
-      github: "https://github.com/Smugcurve13/SAMGPT-updated",
+      title: "wiz-control-by-SC13",
+      description: "A Python project for controlling Wiz smart lights and devices.",
+      tech: ["Python", "IoT"],
+      github: "https://github.com/Smugcurve13/wiz-control-by-SC13",
       demo: null,
-      icon: <Bot className="w-6 h-6" />,
-      category: "AI/ML"
+      icon: <Code className="w-6 h-6" />,
+      category: "IoT"
     },
     {
-      title: "Weather Forecast Data App",
-      description: "A comprehensive weather application that provides accurate forecast data with an intuitive user interface. Built with Python for reliable weather predictions.",
-      tech: ["Python", "API Integration", "Data Analysis"],
-      github: "https://github.com/Smugcurve13/Weather-forecast-data-app",
-      demo: null,
-      icon: <BarChart3 className="w-6 h-6" />,
-      category: "Data Analysis"
-    },
-    {
-      title: "Steam Big Picture Controller",
-      description: "An automation script that detects Xbox controller connections and automatically launches Steam Big Picture mode. Perfect for seamless gaming setup.",
+      title: "bluetooth-controller-turn-on-steam-bigpicture",
+      description: "A Python script that detects when an Xbox controller connects and launches Steam Big Picture.",
       tech: ["Python", "Automation", "Windows"],
       github: "https://github.com/Smugcurve13/bluetooth-controller-turn-on-steam-bigpicture",
       demo: null,
@@ -33,26 +24,35 @@ const Projects: React.FC = () => {
       category: "Automation"
     },
     {
-      title: "Price-to-Performance Calculator",
-      description: "A tool that provides price-to-performance metrics for comparing PC specifications. Helps users make informed decisions when building computers.",
-      tech: ["Python", "Data Analysis", "Performance Metrics"],
+      title: "yt-downloader-gui",
+      description: "A graphical user interface for downloading YouTube videos.",
+      tech: ["TypeScript", "GUI"],
+      github: "https://github.com/Smugcurve13/yt-downloader-gui",
+      demo: null,
+      icon: <Code className="w-6 h-6" />,
+      category: "Web Development"
+    },
+    {
+      title: "yt-downloader-api",
+      description: "An API for downloading YouTube videos.",
+      tech: ["Python", "API"],
+      github: "https://github.com/Smugcurve13/yt-downloader-api",
+      demo: null,
+      icon: <Code className="w-6 h-6" />,
+      category: "Web Development"
+    },
+    {
+      title: "price-to-performance-to-percentage",
+      description: "A Python program to compare PC specs and determine value for money.",
+      tech: ["Python", "Data Analysis"],
       github: "https://github.com/Smugcurve13/price-to-performance-to-percentage",
       demo: null,
       icon: <BarChart3 className="w-6 h-6" />,
       category: "Data Analysis"
     },
     {
-      title: "Wiz Control System",
-      description: "A smart home control system for managing Wiz smart lights and devices. Provides automated control and scheduling capabilities.",
-      tech: ["Python", "IoT", "Smart Home"],
-      github: "https://github.com/Smugcurve13/wiz-control-by-SC13",
-      demo: null,
-      icon: <Code className="w-6 h-6" />,
-      category: "IoT"
-    },
-    {
-      title: "Portfolio Website",
-      description: "This very portfolio website built with React, TypeScript, and Tailwind CSS. Features responsive design and modern web technologies.",
+      title: "portfolio-website",
+      description: "This very portfolio website built with React, TypeScript, and Tailwind CSS.",
       tech: ["React", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/Smugcurve13/portfolio-website",
       demo: "https://sambhavsoni.dev",
