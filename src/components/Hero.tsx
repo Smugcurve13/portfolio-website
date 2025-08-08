@@ -61,23 +61,26 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center relative">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-start relative">
+      <div className="max-w-2xl mx-auto px-6 text-left">
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-            Hi, I'm <span className="text-blue-400">Sambhav Soni</span>
+            Hi, I'm <br /> <span className="text-blue-400">Sambhav Soni</span>
           </h1>
-          <div className="min-h-[2.5rem] flex items-center justify-center mb-8">
-            <p className="text-xl md:text-3xl text-gray-300 leading-relaxed text-center font-mono">
+          <div className="min-h-[2.5rem] flex items-center justify-start mb-8">
+            <p className="text-xl md:text-3xl text-gray-300 leading-relaxed text-left font-mono">
               <span className="text-blue-400 typewriter-cursor" id="typewriter-text">{displayedText || '\u00A0'}</span>
             </p>
           </div>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            I'm a developer who loves building things that are a little clever and a lot reliable. I believe the best systems are like LEGOs: everything fits together, and you can always swap out a piece for a better one without the whole thing falling apart.
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
+            I'm a developer who loves building things that are a little clever and a lot reliable. <br />
+            <span className="italic text-base md:text-lg">
+              I believe the best systems are like LEGOs: everything fits together, and you can always swap out a piece for a better one without the whole thing falling apart.
+            </span>
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 items-start justify-start mb-12">
           <button
             onClick={() => scrollToSection('projects')}
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
@@ -92,7 +95,7 @@ const Hero: React.FC = () => {
           </button>
         </div>
 
-        <div className="flex justify-center space-x-6 mb-12">
+        <div className="flex justify-start space-x-6 mb-12">
           <a
             href="https://github.com/Smugcurve13"
             target="_blank"
