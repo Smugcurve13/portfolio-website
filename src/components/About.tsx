@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <div className="bg-gray-900 p-8 rounded-lg shadow-lg">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8 text-left">About Me</h2>
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-10 text-left italic">
-            "I've got a great idea, but I have no idea if it's a good one." — Doctor Strange, Marvel Comics
+            "I've got a great idea, but I have no idea if it's a good one." — Doctor Strange
           </p>
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-10 text-left">
             I'm a Python developer who is passionate about creating elegant, modular solutions. I build systems with a focus on clean architecture, because I believe the best code is adaptable and easy to work with.
