@@ -73,8 +73,7 @@ const Hero: React.FC = () => {
             </p>
           </div>
           <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            I create innovative solutions through code, from AI-powered applications to automation tools. 
-            Passionate about turning complex problems into elegant solutions.
+            I'm a developer who loves building things that are a little clever and a lot reliable. I believe the best systems are like LEGOs: everything fits together, and you can always swap out a piece for a better one without the whole thing falling apart.
           </p>
         </div>
 
