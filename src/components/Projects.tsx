@@ -63,16 +63,16 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-20 bg-gray-900">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">My Projects</h2>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+      <div className="max-w-6xl px-6 mx-auto">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 text-left">My Projects</h2>
+          <p className="text-gray-300 text-lg md:text-xl max-w-3xl leading-relaxed text-left">
             Here are some of my recent projects that showcase my skills in Python development, 
             automation, web development, and creative problem-solving.
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8 px-4">
+        <div className="flex flex-wrap justify-start gap-2 mb-8 px-4">
           {['All', ...Array.from(new Set(projects.map(p => p.category)))].map(category => (
             <button
               key={category}
@@ -134,7 +134,7 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="mt-12 text-left">
           <a 
             href="https://github.com/Smugcurve13"
             target="_blank"
