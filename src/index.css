@@ -9,6 +9,10 @@ html {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom animations */
@@ -56,6 +60,11 @@ body {
   }
 }
 
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor; }
+}
+
 .animate-fadeInUp {
   animation: fadeInUp 0.6s ease-out;
 }
@@ -72,6 +81,11 @@ body {
   animation: scaleIn 0.5s ease-out;
 }
 
+.typewriter-cursor {
+  border-right: 2px solid currentColor;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
 /* Loading spinner reverse animation */
 .animate-reverse {
   animation-direction: reverse;
@@ -83,3 +97,6 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
+.max-w-custom-3xl {
+  max-width: 1104.010px;
+}
