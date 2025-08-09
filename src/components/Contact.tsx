@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-left mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Contact Me</h2>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl leading-relaxed">
+          <p className="text-gray-300 text-lg md:text-xl max-w-custom-3xl leading-relaxed">
             Feel free to reach out if you have any questions or would like to
             collaborate on a project. I'm always open to new opportunities and
             connections!

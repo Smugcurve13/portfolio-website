@@ -96,3 +96,7 @@ input:focus,
 textarea:focus {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
+
+.max-w-custom-3xl {
+  max-width: 1104.010px;
+}
