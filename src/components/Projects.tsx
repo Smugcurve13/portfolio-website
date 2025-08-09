@@ -66,7 +66,7 @@ const Projects: React.FC = () => {
       <div className="max-w-6xl px-6 mx-auto">
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 text-left">My Projects</h2>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl leading-relaxed text-left">
+          <p className="text-gray-300 text-lg md:text-xl leading-relaxed text-left">
             Here are some of my recent projects that showcase my skills in Python development, 
             automation, web development, and creative problem-solving.
           </p>
@@ -84,50 +84,52 @@ const Projects: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap -mx-4">
           {projects.filter(project => activeCategory === 'All' ? true : project.category === activeCategory).map((project, index) => (
-            <div key={index} className="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="text-blue-400">
-                    {project.icon}
-                  </div>
-                  <div className="flex space-x-3">
-                    <a 
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      <Github className="w-5 h-5" />
-                    </a>
-                    {project.demo && (
+            <div key={index} className="w-full sm:w-1/2 px-4 mb-8">
+              <div className="bg-gray-800 rounded-lg overflow-hidden h-full hover:transform hover:scale-105 transition-all duration-300">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="text-blue-400">
+                      {project.icon}
+                    </div>
+                    <div className="flex space-x-3">
                       <a 
-                        href={project.demo}
+                        href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-white transition-colors"
                       >
-                        <ExternalLink className="w-5 h-5" />
+                        <Github className="w-5 h-5" />
                       </a>
-                    )}
+                      {project.demo && (
+                        <a 
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white transition-colors"
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
-                
-                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex}
-                      className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  
+                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-3 py-1 bg-blue-600 text-white text-xs rounded-full"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
