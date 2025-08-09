@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 const Hero: React.FC = () => {
   const rawTitles = [
@@ -117,6 +119,14 @@ const Hero: React.FC = () => {
             className="text-gray-400 hover:text-white transition-colors transform hover:scale-110"
           >
             <Mail className="w-6 h-6" />
+          </a>
+          <a
+            href="https://discord.com/users/786964843315986452"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-white transition-colors transform hover:scale-110"
+          >
+            <FontAwesomeIcon icon={faDiscord} className="w-6 h-6" />
           </a>
         </div>
       </div>

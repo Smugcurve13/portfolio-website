@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord } from '@fortawesome/free-brands-svg-icons';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -57,7 +59,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-gray-800">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4">
         <div className="text-left mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Contact Me</h2>
           <p className="text-gray-300 text-lg md:text-xl max-w-custom-3xl leading-relaxed">
@@ -67,9 +69,9 @@ const Contact: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 text-left">
+        <div className="grid md:grid-cols-2 gap-y-8 md:gap-12 text-left">
           {/* Contact Form */}
-          <div className="bg-gray-900 p-8 rounded-lg">
+          <div className="bg-gray-900 p-4 md:p-8 rounded-lg w-full">
             <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
             
             {submitStatus === 'success' && (
@@ -161,7 +163,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="bg-gray-900 p-8 rounded-lg flex flex-col justify-between">
+          <div className="bg-gray-900 p-4 md:p-8 rounded-lg flex flex-col justify-between w-full">
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
               <div className="space-y-6">
@@ -204,6 +206,21 @@ const Contact: React.FC = () => {
                       className="text-gray-300 hover:text-white transition-colors text-sm"
                     >
                       linkedin.com/in/sambhavsoni14
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <FontAwesomeIcon icon={faDiscord} className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Discord</h4>
+                    <a 
+                      href="https://discord.com/users/786964843315986452" // Replace with actual Discord invite
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-white transition-colors text-sm"
+                    >
+                      discord.com/users/786964843315986452
                     </a>
                   </div>
                 </div>
