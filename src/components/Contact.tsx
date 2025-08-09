@@ -58,16 +58,16 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 bg-gray-800">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-left mb-12">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Contact Me</h2>
-          <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-lg md:text-xl max-w-3xl leading-relaxed">
             Feel free to reach out if you have any questions or would like to
             collaborate on a project. I'm always open to new opportunities and
             connections!
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-12 text-left">
           {/* Contact Form */}
           <div className="bg-gray-900 p-8 rounded-lg">
             <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
@@ -161,7 +161,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col justify-between">
+          <div className="bg-gray-900 p-8 rounded-lg flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
               <div className="space-y-6">
@@ -210,8 +210,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
             
-            <div className="mt-8 p-6 bg-gray-900 rounded-lg">
-              <h4 className="text-white font-semibold mb-3">Let's Connect!</h4>
+            <div className="mt-8">
               <p className="text-gray-300 text-sm leading-relaxed">
                 I'm always interested in hearing about new projects and opportunities. 
                 Whether you have a question or just want to say hi, I'll try my best to get back to you!
@@ -225,4 +224,3 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
-

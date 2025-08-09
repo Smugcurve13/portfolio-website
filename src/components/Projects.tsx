@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, Github, Code, Bot, Gamepad, BarChart3 } from 'lucide-react';
+import { ExternalLink, Github, Code, Gamepad, BarChart3 } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const [activeCategory, setActiveCategory] = React.useState<string>('All');
