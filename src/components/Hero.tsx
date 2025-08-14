@@ -100,6 +100,13 @@ const Hero: React.FC = () => {
           >
             Get In Touch
           </button>
+          <a
+            href="/resume.pdf"
+            download="Sambhav Soni Resume.pdf"
+            className="border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto text-center"
+          >
+            Download Resume
+          </a>
         </div>
 
         <div className="flex flex-wrap justify-start space-x-6 mb-8 sm:mb-12 w-full">
