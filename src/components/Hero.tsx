@@ -154,9 +154,9 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Background decorative elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-purple-600/10 rounded-full blur-xl"></div>
-      <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-green-600/10 rounded-full blur-lg"></div>
+      <div className="pointer-events-none absolute top-20 left-10 w-32 h-32 bg-blue-600/10 rounded-full blur-xl"></div>
+      <div className="pointer-events-none absolute bottom-20 right-10 w-40 h-40 bg-purple-600/10 rounded-full blur-xl"></div>
+      <div className="pointer-events-none absolute top-1/2 left-1/4 w-20 h-20 bg-green-600/10 rounded-full blur-lg"></div>
     </section>
   );
 };
