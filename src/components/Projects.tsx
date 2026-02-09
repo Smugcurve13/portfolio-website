@@ -55,7 +55,7 @@ const Projects: React.FC = () => {
       description: "This very portfolio website built with React, TypeScript, and Tailwind CSS.",
       tech: ["React", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/Smugcurve13/portfolio-website",
-      demo: "https://sambhavsoni.dev",
+      demo: "https://sambhavsoni.is-a.dev",
       icon: <Code className="w-6 h-6" />,
       category: "Web Development"
     }
