@@ -109,7 +109,7 @@ const Hero: React.FC = () => {
           </a>
         </div>
 
-        <div className="flex flex-wrap justify-start space-x-6 mb-8 sm:mb-12 w-full">
+        <div className="flex flex-wrap justify-start space-x-6 mb-20 sm:mb-24 w-full">
           <a
             href="https://github.com/Smugcurve13"
             target="_blank"
