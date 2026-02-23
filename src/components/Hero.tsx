@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-[100dvh] w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-start relative overflow-x-hidden"
+      className="min-h-screen w-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-start relative overflow-x-hidden pt-20 md:pt-0"
     >
       <div className="w-full max-w-2xl mx-auto px-4 sm:px-6 text-left">
         <div className="mb-6 sm:mb-8">
