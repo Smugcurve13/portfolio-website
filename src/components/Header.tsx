@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,10 +18,11 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavClick = (sectionId: string) => {
+    if (isHomePage) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/', { state: { scrollTo: sectionId } });
     }
     setIsMenuOpen(false);
   };
@@ -37,25 +42,25 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <button
-              onClick={() => scrollToSection('home')}
+              onClick={() => handleNavClick('home')}
               className="text-gray-300 hover:text-white transition-colors"
             >
               Home
             </button>
             <button
-              onClick={() => scrollToSection('about')}
+              onClick={() => handleNavClick('about')}
               className="text-gray-300 hover:text-white transition-colors"
             >
               About
             </button>
             <button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => handleNavClick('projects')}
               className="text-gray-300 hover:text-white transition-colors"
             >
               Projects
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => handleNavClick('contact')}
               className="text-gray-300 hover:text-white transition-colors"
             >
               Contact
@@ -76,25 +81,25 @@ const Header: React.FC = () => {
           <div className="md:hidden mt-4 py-4 bg-gray-800 rounded-lg">
             <div className="flex flex-col space-y-4 px-4">
               <button
-                onClick={() => scrollToSection('home')}
+                onClick={() => handleNavClick('home')}
                 className="text-gray-300 hover:text-white transition-colors text-left"
               >
                 Home
               </button>
               <button
-                onClick={() => scrollToSection('about')}
+                onClick={() => handleNavClick('about')}
                 className="text-gray-300 hover:text-white transition-colors text-left"
               >
                 About
               </button>
               <button
-                onClick={() => scrollToSection('projects')}
+                onClick={() => handleNavClick('projects')}
                 className="text-gray-300 hover:text-white transition-colors text-left"
               >
                 Projects
               </button>
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleNavClick('contact')}
                 className="text-gray-300 hover:text-white transition-colors text-left"
               >
                 Contact
@@ -108,3 +113,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
